@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Start Here — AJ Sarcione</title>
+<meta name="description" content="One place to access everything AJ Sarcione has built. Tell us what you need to accomplish and start with the right tool." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://start.ajsarcione.com/" />
+<meta property="og:title" content="Start Here — AJ Sarcione" />
+<meta property="og:description" content="One place to reach every tool built on who you are. Coached by AJai." />
+<meta property="og:image" content="https://start.ajsarcione.com/share.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Start Here — AJ Sarcione" />
+<meta name="twitter:description" content="One place to reach every tool built on who you are. Coached by AJai." />
+<meta name="twitter:image" content="https://start.ajsarcione.com/share.png" />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #0A0A0A;
+    --panel: #141414;
+    --line: #262626;
+    --yellow: #F1E17A;
+    --orange: #FE7629;
+    --blue: #0184C8;
+    --off-white: #F7F6F0;
+    --gray: #767676;
+    --gray-light: #C7C7C7;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--off-white);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .eyebrow {
+    font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 12px;
+    letter-spacing: 5px; text-transform: uppercase; color: var(--orange);
+  }
+  h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.02; }
+
+  /* HERO */
+  header.hero { padding: 92px 0 56px; border-bottom: 1px solid var(--line); }
+  .hero .bar { height: 4px; width: 56px; background: var(--orange); margin-bottom: 26px; }
+  .hero h1 { font-size: clamp(40px, 6.5vw, 76px); font-weight: 700; color: #fff; margin: 14px 0 20px; }
+  .hero h1 .y { color: var(--yellow); }
+  .hero p.lead { font-size: clamp(16px, 2vw, 20px); color: var(--gray-light); max-width: 640px; }
+  .hero .aj { margin-top: 22px; font-size: 15px; color: var(--gray); }
+  .aji { font-weight: 700; }
+  .aji .aj-y { color: var(--yellow); } .aji .aj-b { color: var(--blue); }
+
+  /* RECOMMENDER */
+  section.rec { padding: 60px 0; border-bottom: 1px solid var(--line); }
+  .rec h2 { font-size: clamp(26px, 3.4vw, 38px); color: #fff; font-weight: 700; }
+  .rec .sub { color: var(--gray-light); margin: 10px 0 28px; max-width: 620px; }
+  .goals { display: flex; flex-wrap: wrap; gap: 12px; }
+  .goal {
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
+    background: var(--panel); border: 1px solid var(--line); color: var(--off-white);
+    border-radius: 999px; padding: 12px 20px; cursor: pointer; transition: all .15s ease;
+  }
+  .goal:hover { border-color: var(--yellow); color: #fff; }
+  .goal.active { background: var(--yellow); color: var(--black); border-color: var(--yellow); }
+  .result {
+    display: none; margin-top: 28px; background: var(--panel);
+    border: 1px solid var(--line); border-left: 4px solid var(--orange);
+    border-radius: 10px; padding: 26px 28px;
+  }
+  .result.show { display: block; }
+  .result .rlabel { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+  .result h3 { font-size: 26px; color: #fff; font-weight: 700; }
+  .result p { color: var(--gray-light); margin: 8px 0 18px; }
+  .result .go {
+    display: inline-block; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 14px;
+    letter-spacing: 2px; text-transform: uppercase; color: #fff; background: var(--orange);
+    padding: 13px 26px; border-radius: 5px; text-decoration: none; border: none; cursor: pointer;
+  }
+
+  /* PRODUCTS */
+  section.products { padding: 64px 0 40px; }
+  section.products > .wrap > h2 { font-size: clamp(26px, 3.4vw, 38px); color: #fff; font-weight: 700; margin-bottom: 6px; }
+  section.products > .wrap > p.psub { color: var(--gray-light); margin-bottom: 34px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 28px 26px 26px; display: flex; flex-direction: column;
+  }
+  .card .tag { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--yellow); margin-bottom: 10px; }
+  .card h3 { font-size: 24px; color: #fff; font-weight: 700; }
+  .card .price { font-family: 'Oswald', sans-serif; font-weight: 500; color: var(--orange); font-size: 15px; letter-spacing: 1px; margin: 6px 0 12px; }
+  .card p.desc { color: var(--gray-light); font-size: 15px; flex-grow: 1; }
+  .card .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .btn {
+    font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 12px 20px; border-radius: 5px; text-decoration: none;
+    cursor: pointer; border: 2px solid transparent; display: inline-block; text-align: center;
+  }
+  .btn-orange { background: var(--orange); color: #fff; }
+  .btn-ghost { background: transparent; border-color: var(--line); color: var(--off-white); }
+  .btn-ghost:hover { border-color: var(--yellow); color: #fff; }
+
+  /* MODAL */
+  .overlay {
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,0.78); align-items: center; justify-content: center; padding: 24px;
+  }
+  .overlay.show { display: flex; }
+  .modal {
+    background: var(--black); border: 1px solid var(--line); border-radius: 14px;
+    width: 100%; max-width: 460px; padding: 34px 30px 30px; position: relative;
+  }
+  .modal .x { position: absolute; top: 16px; right: 18px; background: none; border: none; color: var(--gray); font-size: 26px; cursor: pointer; line-height: 1; }
+  .modal .mlabel { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+  .modal h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 24px; color: #fff; font-weight: 700; }
+  .modal p.mdesc { color: var(--gray-light); font-size: 14px; margin: 10px 0 20px; }
+  .modal label { display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); margin: 0 0 6px; }
+  .modal input {
+    width: 100%; background: var(--panel); border: 2px solid var(--line); border-radius: 6px;
+    color: #fff; font-family: 'DM Sans', sans-serif; font-size: 16px; padding: 13px 14px; outline: none; margin-bottom: 16px;
+  }
+  .modal input:focus { border-color: var(--yellow); }
+  .modal .submit { width: 100%; background: var(--orange); color: #fff; border: none; border-radius: 6px; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 2px; text-transform: uppercase; padding: 15px; cursor: pointer; }
+  .modal .msg { font-size: 14px; margin-top: 14px; min-height: 20px; line-height: 1.5; }
+
+  footer { border-top: 1px solid var(--line); padding: 40px 0 60px; margin-top: 40px; }
+  footer p { color: var(--gray); font-size: 13px; }
+  footer a { color: var(--gray-light); text-decoration: none; }
+
+  @media (max-width: 760px) {
+    .grid { grid-template-columns: 1fr; }
+    header.hero { padding: 64px 0 44px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="bar"></div>
+    <p class="eyebrow">AJ Sarcione · Intivine</p>
+    <h1>Everything starts with <span class="y">who you are.</span></h1>
+    <p class="lead">One place to reach every tool built on that idea. Identity drives communication. Communication shapes experience. Experience builds reputation. Start where you need to.</p>
+    <p class="aj">Coached by <span class="aji"><span class="aj-y">AJ</span><span class="aj-b">ai</span></span>, an AI coach built on AJ's methodology, voice, and frameworks.</p>
+  </div>
+</header>
+
+<section class="rec">
+  <div class="wrap">
+    <h2>Not sure where to start?</h2>
+    <p class="sub">Tell us what you need to accomplish. We will point you to the right place.</p>
+    <div class="goals" id="goals"></div>
+    <div class="result" id="result">
+      <p class="rlabel">Start with</p>
+      <h3 id="rName"></h3>
+      <p id="rWhy"></p>
+      <button class="go" id="rGo">Explore it</button>
+    </div>
+  </div>
+</section>
+
+<section class="products">
+  <div class="wrap">
+    <h2>The tools</h2>
+    <p class="psub">Each one is a different way in. The methodology underneath is the same.</p>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 Intivine, Inc. · AJ Sarcione · <a href="https://www.ajsarcione.com">ajsarcione.com</a></p>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <button class="x" id="mClose" aria-label="Close">&times;</button>
+    <p class="mlabel">Access</p>
+    <h3 id="mTitle">Get your access</h3>
+    <p class="mdesc" id="mDesc">Enter the email you used. If you already have access, we will send your code. If not, we will pass your request to AJ.</p>
+    <label for="mName">Name (optional)</label>
+    <input type="text" id="mName" autocomplete="name" placeholder="Your name" />
+    <label for="mEmail">Email</label>
+    <input type="email" id="mEmail" autocomplete="email" placeholder="you@email.com" />
+    <button class="submit" id="mSubmit">Send it to me</button>
+    <p class="msg" id="mMsg"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var ACCESS_ENDPOINT = "https://ajsarcione-functions.netlify.app/.netlify/functions/submit-access";
+
+  // tool key -> data. access: "email" uses the access modal; "tool" links to the tool's own gate; "text" for MatchboxRoom.
+  var TOOLS = {
+    identityflow: {
+      name: "IdentityFlow™", tag: "Identity",
+      price: "$29 one time",
+      desc: "Before you use AI, it needs the real you. Sixteen questions that codify who you are into an Identity Passport your tools and your AI can build from.",
+      buy: "https://buy.stripe.com/14A00jdGuaPq7vRd240sU05",
+      buyLabel: "Get IdentityFlow",
+      access: "email"
+    },
+    mojofactor: {
+      name: "MOJOfactor™", tag: "Drive",
+      price: "$12.99 solo · $99 team",
+      desc: "What actually fuels you, and what drains you. MOJOfactor names your top factor and its kryptonite so you can lead from your real source of momentum.",
+      buy: "https://buy.stripe.com/dRm9AT59Y5v62bx8LO0sU06",
+      buyLabel: "Get MOJOfactor",
+      access: "email", toolUrl: "https://mojofactor.ajsarcione.com"
+    },
+    activate: {
+      name: "Activate", tag: "Launch",
+      price: "$33 one time",
+      desc: "Turn an idea into a built plan. AJai walks you through values, vision, and feeling, then hands you a launch kit for the thing you are starting.",
+      buy: "https://buy.stripe.com/7sY6oH0TI0aM9DZaTW0sU0c",
+      buyLabel: "Get Activate",
+      access: "email", toolUrl: "https://activate.ajsarcione.com"
+    },
+    authenticauthority: {
+      name: "Authentic Authority™", tag: "Personal brand",
+      price: "$297 · $97 for Growth members",
+      desc: "Your name is your brand. Build the personal authority that makes people trust you before they meet you, on your terms and in your voice.",
+      buy: "https://buy.stripe.com/28E9ATcCq7Deg2n1jm0sU02",
+      buyLabel: "Get Authentic Authority",
+      access: "email", toolUrl: "https://authenticauthority.ajsarcione.com"
+    },
+    brandblueprint: {
+      name: "Brand Blueprint™", tag: "Brand",
+      price: "$297 one time",
+      desc: "The foundation your brand is built on. Define what you stand for, who you serve, and the through-line that makes every piece of it recognizable.",
+      buy: "https://buy.stripe.com/eVqeVd59YbTu17taTW0sU03",
+      buyLabel: "Get Brand Blueprint",
+      access: "email"
+    },
+    culturecode: {
+      name: "Culture Code™", tag: "Team",
+      price: "$297 one time",
+      desc: "The identity of your team, made explicit. Name the culture you actually want and the behaviors that build it, so it holds when you are not in the room.",
+      buy: "https://buy.stripe.com/9B6eVd9qebTug2n7HK0sU04",
+      buyLabel: "Get Culture Code",
+      access: "email"
+    },
+    matchboxroom: {
+      name: "MatchboxRoom", tag: "Daily coaching",
+      price: "From $3.99/mo",
+      desc: "AJai in your pocket. Daily coaching by text that keeps you moving, built on AJ's frameworks. Strike your day, one message at a time.",
+      buy: "https://matchboxroom.ajsarcione.com",
+      buyLabel: "Start by text",
+      access: "text"
+    },
+    reset: {
+      name: "Performance Reset", tag: "Session",
+      price: "Sessions from $125",
+      desc: "Pre-performance state activation, for the moment before the moment. HeartMath coherence to think, present, and communicate under pressure. Book a single session or the three-session series.",
+      buy: "https://www.ajsarcione.com/performance-reset",
+      buyLabel: "See Reset options",
+      access: "none"
+    },
+    checkin: {
+      name: "Check-in Session", tag: "1:1 with AJ",
+      price: "From $350",
+      desc: "One session, real clarity. A direct conversation about what is actually going on right now: your brand, your leadership narrative, your identity, and your direction. Sixty or ninety minutes, or a three-session Clarity Arc.",
+      buy: "https://www.ajsarcione.com/check-in-sessions",
+      buyLabel: "Book a check-in",
+      access: "none"
+    }
+  };
+
+  // submit-access allowed tool names (must match the function's ALLOWED_TOOLS exactly)
+  var ACCESS_NAME = {
+    identityflow: "IdentityFlow",
+    mojofactor: "MOJOfactor", activate: "Activate",
+    authenticauthority: "Authentic Authority", brandblueprint: "Brand Blueprint",
+    culturecode: "Culture Code"
+  };
+
+  var GOALS = [
+    { label: "Understand who I am before I use AI", key: "identityflow", why: "IdentityFlow codifies your identity into a passport your AI and your tools can build from." },
+    { label: "Find what drives me", key: "mojofactor", why: "MOJOfactor names the factor that actually fuels your momentum, and the one that drains it." },
+    { label: "Build my personal brand", key: "authenticauthority", why: "Authentic Authority builds the personal authority that makes people trust you before they meet you." },
+    { label: "Define my brand", key: "brandblueprint", why: "Brand Blueprint sets the foundation every piece of your brand is built on." },
+    { label: "Shape my team's culture", key: "culturecode", why: "Culture Code makes the identity of your team explicit, so it holds when you are not in the room." },
+    { label: "Launch a project or idea", key: "activate", why: "Activate turns an idea into a built plan and hands you a launch kit." },
+    { label: "Daily coaching that keeps me moving", key: "matchboxroom", why: "MatchboxRoom is AJai by text, daily coaching that keeps you striking your day." },
+    { label: "Prepare for a high-stakes moment", key: "reset", why: "A Performance Reset is HeartMath state work with AJ to reach and hold your best state when it counts." },
+    { label: "Get clarity on where I'm headed", key: "checkin", why: "A Check-in Session with AJ is one focused conversation to move what is actually in front of you." }
+  ];
+
+  var ORDER = ["identityflow","mojofactor","activate","authenticauthority","brandblueprint","culturecode","matchboxroom","reset","checkin"];
+
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+  // Build recommender goals
+  var goalsEl = document.getElementById("goals");
+  var resultEl = document.getElementById("result");
+  var rName = document.getElementById("rName"), rWhy = document.getElementById("rWhy"), rGo = document.getElementById("rGo");
+  var recTarget = null;
+  GOALS.forEach(function (g) {
+    var b = document.createElement("button");
+    b.className = "goal"; b.textContent = g.label;
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".goal").forEach(function(x){x.classList.remove("active");});
+      b.classList.add("active");
+      var t = TOOLS[g.key];
+      rName.textContent = t.name; rWhy.textContent = g.why; recTarget = g.key;
+      resultEl.classList.add("show");
+      resultEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+    goalsEl.appendChild(b);
+  });
+  rGo.addEventListener("click", function () {
+    if (!recTarget) return;
+    var el = document.getElementById("card-" + recTarget);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+
+  // Build product cards
+  var grid = document.getElementById("grid");
+  ORDER.forEach(function (key) {
+    var t = TOOLS[key];
+    var card = document.createElement("div");
+    card.className = "card"; card.id = "card-" + key;
+    var actions = '<a class="btn btn-orange" href="' + t.buy + '"' + (t.access === "text" ? '' : ' target="_blank" rel="noopener"') + '>' + esc(t.buyLabel) + '</a>';
+    if (t.access === "email") {
+      actions += '<button class="btn btn-ghost" data-access="' + key + '">I already own it</button>';
+    } else if (t.access === "tool") {
+      actions += '<a class="btn btn-ghost" href="' + t.toolUrl + '" target="_blank" rel="noopener">Enter the tool</a>';
+    }
+    if (t.showTool && t.toolUrl) {
+      actions += '<a class="btn btn-ghost" href="' + t.toolUrl + '" target="_blank" rel="noopener">Enter the tool</a>';
+    }
+    card.innerHTML =
+      '<div class="tag">' + esc(t.tag) + '</div>' +
+      '<h3>' + esc(t.name) + '</h3>' +
+      '<div class="price">' + esc(t.price) + '</div>' +
+      '<p class="desc">' + esc(t.desc) + '</p>' +
+      '<div class="actions">' + actions + '</div>';
+    grid.appendChild(card);
+  });
+
+  // Access modal
+  var overlay = document.getElementById("overlay");
+  var mTitle = document.getElementById("mTitle"), mEmail = document.getElementById("mEmail"),
+      mName = document.getElementById("mName"), mMsg = document.getElementById("mMsg"),
+      mSubmit = document.getElementById("mSubmit");
+  var currentTool = null;
+
+  function openAccess(key) {
+    currentTool = key;
+    var t = TOOLS[key];
+    mTitle.textContent = "Access " + t.name;
+    mMsg.textContent = ""; mMsg.style.color = "var(--gray-light)";
+    mEmail.value = ""; mName.value = "";
+    overlay.classList.add("show");
+    setTimeout(function(){ mEmail.focus(); }, 50);
+  }
+  function closeAccess(){ overlay.classList.remove("show"); }
+
+  document.getElementById("grid").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-access]");
+    if (b) openAccess(b.getAttribute("data-access"));
+  });
+  document.getElementById("mClose").addEventListener("click", closeAccess);
+  overlay.addEventListener("click", function (e) { if (e.target === overlay) closeAccess(); });
+
+  mSubmit.addEventListener("click", function () {
+    var email = (mEmail.value || "").trim();
+    if (!email || !/.+@.+\..+/.test(email)) { mMsg.style.color = "#FF6B6B"; mMsg.textContent = "Enter a valid email."; return; }
+    var toolName = ACCESS_NAME[currentTool];
+    mSubmit.disabled = true; mSubmit.textContent = "Sending...";
+    mMsg.style.color = "var(--gray-light)"; mMsg.textContent = "";
+    fetch(ACCESS_ENDPOINT, {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ tool: toolName, email: email, name: (mName.value || "").trim() })
+    }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        mSubmit.disabled = false; mSubmit.textContent = "Send it to me";
+        if (res.ok && res.d.status === "sent") {
+          mMsg.style.color = "var(--yellow)";
+          mMsg.textContent = "You already have access. Check your email for your code.";
+        } else if (res.ok && res.d.status === "requested") {
+          mMsg.style.color = "var(--yellow)";
+          mMsg.textContent = "Request received. AJ will review it and send your access.";
+        } else if (res.ok && res.d.status === "purchase") {
+          var tp = TOOLS[currentTool];
+          mMsg.style.color = "var(--gray-light)";
+          mMsg.innerHTML = "We did not find access for that email. You can get " + tp.name +
+            ' here: <a href="' + tp.buy + '" target="_blank" rel="noopener" style="color:var(--yellow);font-weight:600">Get ' + tp.name + "</a>.";
+        } else {
+          mMsg.style.color = "#FF6B6B";
+          mMsg.textContent = (res.d && res.d.error) ? res.d.error : "Something went wrong. Try again.";
+        }
+      }).catch(function () {
+        mSubmit.disabled = false; mSubmit.textContent = "Send it to me";
+        mMsg.style.color = "#FF6B6B"; mMsg.textContent = "Something went wrong. Try again.";
+      });
+  });
+  mEmail.addEventListener("keydown", function (e) { if (e.key === "Enter") mSubmit.click(); });
+})();
+</script>
+</body>
+</html>
