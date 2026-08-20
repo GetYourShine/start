@@ -56,18 +56,28 @@
   .aji { font-weight: 700; }
   .aji .aj-y { color: var(--yellow); } .aji .aj-b { color: var(--blue); }
 
+  /* AJAI BAND */
+  section.ajai { padding: 52px 0; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, rgba(1,132,200,0.09), rgba(10,10,10,0)); }
+  .ajai .wrap { display: flex; gap: 44px; align-items: center; flex-wrap: wrap; }
+  .ajai .lockup { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(64px, 9vw, 104px); letter-spacing: 1px; line-height: 0.9; }
+  .ajai .lockup .aj { color: var(--yellow); } .ajai .lockup .ai { color: var(--blue); }
+  .ajai .copy { flex: 1; min-width: 300px; }
+  .ajai .copy .k { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+  .ajai .copy h2 { font-size: clamp(24px, 3.4vw, 36px); color: #fff; font-weight: 700; }
+  .ajai .copy p { color: var(--gray-light); margin-top: 12px; max-width: 660px; font-size: 16px; }
+
   /* RECOMMENDER */
   section.rec { padding: 60px 0; border-bottom: 1px solid var(--line); }
   .rec h2 { font-size: clamp(26px, 3.4vw, 38px); color: #fff; font-weight: 700; }
   .rec .sub { color: var(--gray-light); margin: 10px 0 28px; max-width: 620px; }
   .goals { display: flex; flex-wrap: wrap; gap: 12px; }
   .goal {
-    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
-    background: var(--panel); border: 1px solid var(--line); color: var(--off-white);
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600;
+    background: rgba(241,225,122,0.10); border: 1px solid rgba(241,225,122,0.45); color: var(--off-white);
     border-radius: 999px; padding: 12px 20px; cursor: pointer; transition: all .15s ease;
   }
-  .goal:hover { border-color: var(--yellow); color: #fff; }
-  .goal.active { background: var(--yellow); color: var(--black); border-color: var(--yellow); }
+  .goal:hover { background: rgba(241,225,122,0.20); border-color: var(--yellow); color: #fff; }
+  .goal.active { background: var(--yellow); color: var(--black); border-color: var(--yellow); box-shadow: 0 0 0 3px rgba(241,225,122,0.18); }
   .result {
     display: none; margin-top: 28px; background: var(--panel);
     border: 1px solid var(--line); border-left: 4px solid var(--orange);
@@ -147,9 +157,20 @@
     <p class="eyebrow">AJ Sarcione · Intivine</p>
     <h1>Everything starts with <span class="y">who you are.</span></h1>
     <p class="lead">One place to reach every tool built on that idea. Identity drives communication. Communication shapes experience. Experience builds reputation. Start where you need to.</p>
-    <p class="aj">Coached by <span class="aji"><span class="aj-y">AJ</span><span class="aj-b">ai</span></span>, an AI coach built on AJ's methodology, voice, and frameworks.</p>
+    <p class="aj">Coached by <span class="aji"><span class="aj-y">AJ</span><span class="aj-b">ai</span></span>, the coach behind every tool below.</p>
   </div>
 </header>
+
+<section class="ajai">
+  <div class="wrap">
+    <div class="lockup"><span class="aj">AJ</span><span class="ai">ai</span></div>
+    <div class="copy">
+      <p class="k">Behind every tool</p>
+      <h2>One coach runs through all of it.</h2>
+      <p>AJai is an AI coach built on AJ's methodology, voice, and frameworks, running on Claude. Every tool here is a different way into the same intelligence. Start anywhere and AJai carries the thread, from your first honest look all the way to leading from who you are.</p>
+    </div>
+  </div>
+</section>
 
 <section class="rec">
   <div class="wrap">
@@ -200,6 +221,14 @@
 
   // tool key -> data. access: "email" uses the access modal; "tool" links to the tool's own gate; "text" for MatchboxRoom.
   var TOOLS = {
+    shinescale: {
+      name: "Shine Scale™", tag: "Free · Start here",
+      price: "Free. Always.",
+      desc: "The first honest look. A free 28-question assessment that reflects what is most alive in you right now and names your leadership profile. The door into everything else.",
+      buy: "https://shinescale.ajsarcione.com",
+      buyLabel: "Take it free",
+      access: "none"
+    },
     identityflow: {
       name: "IdentityFlow™", tag: "Identity",
       price: "$29 one time",
@@ -283,6 +312,7 @@
   };
 
   var GOALS = [
+    { label: "I'm getting started, show me where to begin", key: "shinescale", why: "The free Shine Scale is the first honest look at what is most alive in you, and the door into everything else." },
     { label: "Understand who I am before I use AI", key: "identityflow", why: "IdentityFlow codifies your identity into a passport your AI and your tools can build from." },
     { label: "Find what drives me", key: "mojofactor", why: "MOJOfactor names the factor that actually fuels your momentum, and the one that drains it." },
     { label: "Build my personal brand", key: "authenticauthority", why: "Authentic Authority builds the personal authority that makes people trust you before they meet you." },
@@ -294,7 +324,7 @@
     { label: "Get clarity on where I'm headed", key: "checkin", why: "A Check-in Session with AJ is one focused conversation to move what is actually in front of you." }
   ];
 
-  var ORDER = ["identityflow","mojofactor","activate","authenticauthority","brandblueprint","culturecode","matchboxroom","reset","checkin"];
+  var ORDER = ["shinescale","identityflow","mojofactor","activate","authenticauthority","brandblueprint","culturecode","matchboxroom","reset","checkin"];
 
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
